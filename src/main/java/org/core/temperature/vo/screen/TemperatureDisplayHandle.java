@@ -26,7 +26,7 @@ public class TemperatureDisplayHandle extends TemperatureDisplay{
     public void call(){
         this.screen.setLocationRelativeTo(null);
         this.screen.setVisible(true);
-        run("");
+        showTemperature("");
     }
     
     private void setTextForTemperature(String text){
@@ -46,7 +46,30 @@ public class TemperatureDisplayHandle extends TemperatureDisplay{
     //sensors | awk '/Core 0/ {print $4} {print $5} {print $6} {print $7} {print $8} {print $9}'
     
     
-    public void run(String fahrenheit) {
+    public void showTemperature(String fahrenheit){
+        try{
+            while(true){
+                StringBuilder stb = new StringBuilder();
+                String[] command = { "/bin/sh", "-c", "sensors "+fahrenheit+" | awk '/Core 0/ {print $3}'"};
+                Process process = Runtime.getRuntime().exec(command);
+                String result = getProcessResult(process);
+                
+                stb.append("\n");
+                stb.append("     ");
+                stb.append(result);
+                
+                if (result != null && !result.isEmpty() && !result.trim().isEmpty()) 
+                    setTextForTemperature(stb.toString());
+                
+                Thread.sleep(3000);
+            }
+        }
+        catch(InterruptedException | IOException ex){
+            ex.printStackTrace();
+        }        
+    }
+    
+    public void showTemperatureByEachCore(String fahrenheit) {
         try{
             while(true){
                 int availableProcessors = Runtime.getRuntime().availableProcessors();
@@ -56,9 +79,10 @@ public class TemperatureDisplayHandle extends TemperatureDisplay{
                     Process process = Runtime.getRuntime().exec(command);
                     String result = getProcessResult(process);
                     if (result != null && !result.isEmpty() && !result.trim().isEmpty()) {
-                        stb.append(" Core ");
+                        stb.append("\n");
+                        stb.append(" (Core ");
                         stb.append(coreNumber);
-                        stb.append(" : ");
+                        stb.append(") ");
                         stb.append(result);
                         stb.append("\n");
                         setTextForTemperature(stb.toString());

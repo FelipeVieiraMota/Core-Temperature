@@ -45,10 +45,10 @@ public class TemperatureDisplay extends javax.swing.JFrame {
 
         areaTemperature.setEditable(false);
         areaTemperature.setBackground(new java.awt.Color(1, 1, 1));
-        areaTemperature.setColumns(15);
-        areaTemperature.setFont(new java.awt.Font("Ubuntu", 0, 20)); // NOI18N
+        areaTemperature.setColumns(5);
+        areaTemperature.setFont(new java.awt.Font("Ubuntu", 1, 56)); // NOI18N
         areaTemperature.setForeground(new java.awt.Color(25, 201, 69));
-        areaTemperature.setRows(4);
+        areaTemperature.setRows(2);
         jScrollPane1.setViewportView(areaTemperature);
 
         menuItemVersion.setText("About");
@@ -77,7 +77,7 @@ public class TemperatureDisplay extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 329, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
