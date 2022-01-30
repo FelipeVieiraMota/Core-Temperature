@@ -1,20 +1,16 @@
- /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package org.core.temperature.vo.screen;
+package org.core.temperature.vo.screen.v1;
+
+import org.core.temperature.vo.screen.v1.TemperatureDisplay;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import javax.swing.JTextArea;
 
 /**
  *
  * @author felipe
  */
-public class TemperatureDisplayHandle extends TemperatureDisplay{
+public class TemperatureDisplayHandle extends TemperatureDisplay {
     
     TemperatureDisplay screen;
     
@@ -30,9 +26,7 @@ public class TemperatureDisplayHandle extends TemperatureDisplay{
     }
     
     private void setTextForTemperature(String text){
-        JTextArea area = this.screen.getAreaTemperature();
-        area.setText(text);
-        this.screen.setAreaTemperature(area);
+        this.screen.areaTemperature.setText(text);
     }
     
     private String getProcessResult(Process process) throws IOException {

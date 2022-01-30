@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.core.temperature.service;
+package org.core.temperature.service.v1;
 
-import org.core.temperature.vo.screen.TemperatureDisplayHandle;
+import org.core.temperature.vo.screen.v1.TemperatureDisplayHandle;
 
 /**
  *
