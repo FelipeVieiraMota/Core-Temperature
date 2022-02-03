@@ -1,4 +1,4 @@
-package org.core.temperature.vo.screen.v1;
+package org.core.temperature.vo.screen;
 
 import javax.swing.JOptionPane;
 
@@ -8,13 +8,17 @@ import javax.swing.JOptionPane;
  */
 public class TemperatureDisplay extends javax.swing.JFrame {
 
-    protected javax.swing.JTextArea areaTemperature;
-    protected javax.swing.JMenuItem jMenuItem1;
-    protected javax.swing.JScrollPane jScrollPane1;
-    protected javax.swing.JMenuBar menuBar;
-    protected javax.swing.JMenuItem menuItemAuthor;
-    protected javax.swing.JMenu menuItemVersion;
+    private javax.swing.JTextArea areaTemperature;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JMenuBar menuBar;
+    private javax.swing.JMenuItem menuItemAuthor;
+    private javax.swing.JMenu menuItemVersion;
 
+    public void setAreaTemperature(String text){
+        this.areaTemperature.setText(text);
+    }
+    
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {
         JOptionPane.showMessageDialog(null,"Version 1.0.0");
     }
@@ -53,6 +57,7 @@ public class TemperatureDisplay extends javax.swing.JFrame {
 
         menuItemAuthor.setText("Author");
         menuItemAuthor.addActionListener(new java.awt.event.ActionListener() {
+            @Override
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuItemAuthorActionPerformed(evt);
             }
@@ -61,6 +66,7 @@ public class TemperatureDisplay extends javax.swing.JFrame {
 
         jMenuItem1.setText("Version");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            @Override
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
             }
